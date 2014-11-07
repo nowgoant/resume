@@ -1,0 +1,49 @@
+project,tech,duration
+0,C#,12
+0,Linq To Sql/Entity,12
+0,asp.net,12
+0,js,12
+0,jquery,6
+0,dojo,6
+0,html,12
+0,css,12
+0,Ajax,6
+1,C#,18
+1,asp.net,18
+1,ADO.NET,18
+1,Web Service,12
+1,WCF,12
+1,MVVM(MVC),18
+1,js,18
+1,css,18
+1,html,18
+1,Open Xml,10
+1,js to Office word,6
+1,jquery,18
+1,SOA,18
+1,Ajax,18
+2,js,6
+2,css,6
+2,css3,6
+2,html,6
+2,HTML5,6
+2,jquery,6
+2,jQuery Mobile,6
+2,PhoneGap,6
+2,PhoneGap to Android,6
+2,PhoneGap to ios,6
+2,Ajax,6
+2,FusionCharts,6
+2,iscroll4,6
+3,js,13
+3,typescript,12
+3,css,13
+3,css3,6
+3,less,6
+3,html,13
+3,c#,13
+3,MVVC(MVC),13
+3,Spark View Engine,13
+3,Region,13
+3,Resource Management System,13
+3,ajax,6
