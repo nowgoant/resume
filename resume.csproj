@@ -17,9 +17,13 @@
     <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="assets\css\index.css">
+      <DependentUpon>index.less</DependentUpon>
+    </Content>
     <Content Include="assets\css\keen-dashboards.css" />
     <Content Include="assets\css\keen-static.css" />
     <Content Include="assets\img\bg-bars.png" />
+    <Content Include="assets\img\me.jpg" />
     <Content Include="assets\js\meta.js" />
     <Content Include="assets\lib\bootstrap\css\bootstrap-theme.css" />
     <Content Include="assets\lib\bootstrap\css\bootstrap-theme.min.css" />
@@ -28,6 +32,12 @@
     <Content Include="assets\lib\bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="assets\lib\bootstrap\js\bootstrap.js" />
     <Content Include="assets\lib\bootstrap\js\bootstrap.min.js" />
+    <Content Include="assets\lib\d3\d3.js" />
+    <Content Include="assets\lib\d3\d3.min.js" />
+    <Content Include="assets\lib\dc\crossfilter.js" />
+    <Content Include="assets\lib\dc\crossfilter.min.js" />
+    <Content Include="assets\lib\dc\dc.js" />
+    <Content Include="assets\lib\dc\dc.min.js" />
     <Content Include="assets\lib\holderjs\holder.js" />
     <Content Include="assets\lib\jquery-knob\jquery.knob.min.js" />
     <Content Include="assets\lib\jquery-knob\excanvas.js" />
@@ -50,6 +60,9 @@
     <Content Include="assets\lib\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="assets\lib\bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="assets\lib\jquery\jquery.min.map" />
+    <Content Include="assets\css\index.less" />
+    <Content Include="data\resume.json" />
+    <Content Include="data\resume-2014.csv" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -59,6 +72,24 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="layouts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="assets\js\index.ts" />
+    <TypeScriptCompile Include="assets\js\timer.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-mocks.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-resource.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-route.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-sanitize.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-scenario.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\crossfilter\crossfilter.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\d3\d3.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\d3\plugins\d3.superformula.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\dc.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\IResumeData.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
