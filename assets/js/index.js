@@ -29,35 +29,43 @@
         //项目经验
         (function (_ndx) {
             var projects = _ndx.dimension(function (d) {
-                return d.project;
+                return projectsHash[d.project].name;
             });
 
-            var resumeByProjectGroup = projects.group().reduceSum(filterProjects);
+            var resumeByProjectGroup = projects.group().reduceSum(function (d) {
+                return +d.duration;
+            });
 
-            experChart = dc.pieChart("#projectExperiences-area").width($("#projectExperiences-area").parent().width()).height(250).radius(125).innerRadius(50).dimension(projects).group(resumeByProjectGroup).legend(dc.legend().x(10).y(10).itemHeight(20).gap(10));
+            experChart = dc.pieChart("#projectExperiences-area").width($("#projectExperiences-area").parent().width()).height(250).radius(125).innerRadius(50).dimension(projects).group(resumeByProjectGroup).legend(dc.legend().x(10).y(10).itemHeight(20).gap(10)).title(function (d) {
+                console.log(d);
+                var key = d.key || d.data.key, value = d.value || d.data.value;
+                return "大小:   " + value + "\n" + "项目名称:  " + key + "\n";
+            });
         })(ndx);
 
         //技能
         (function (_ndx) {
             var techs = _ndx.dimension(function (d) {
-                return d.tech.toLowerCase();
+                return d.tech;
             });
             console.log(techs);
             var resumeByTechGroup = techs.group().reduceSum(function (d) {
                 return +d.duration;
             });
 
-            var techChart = dc.rowChart("#tech-area").width($("#tech-area").parent().width()).height(800).dimension(techs).group(resumeByTechGroup).elasticX(true);
+            var techChart = dc.rowChart("#tech-area").width($("#tech-area").parent().width()).height(800).dimension(techs).group(resumeByTechGroup).elasticX(true).title(function (d) {
+                var key = d.key, value = d.value;
+                return "技术名称:" + key.toUpperCase() + "\n" + "使用时间:" + value / 12 + "(年)\n";
+            });
+            ;
         })(ndx);
 
         dc.renderAll();
 
-        d3.selectAll("#projectExperiences-area .dc-legend text").forEach(function (item, index, array) {
-            item.forEach(function (txt, index) {
-                d3.select(txt).text(projectsHash[index].name);
-            });
+        //debugger
+        $(window).resize(function () {
+            // dc.renderAll();
         });
-        //.attr("transform", "translate(0,10)");
     });
 })();
 //# sourceMappingURL=index.js.map

@@ -5,7 +5,7 @@ project,tech,duration
 0,js,12
 0,jquery,6
 0,dojo,6
-0,html,12
+0,HTML4,12
 0,css,12
 0,Ajax,6
 1,C#,18
@@ -16,7 +16,7 @@ project,tech,duration
 1,MVVM(MVC),18
 1,js,18
 1,css,18
-1,html,18
+1,HTML4,18
 1,Open Xml,10
 1,js to Office word,6
 1,jquery,18
@@ -25,7 +25,7 @@ project,tech,duration
 2,js,6
 2,css,6
 2,css3,6
-2,html,6
+2,HTML4,6
 2,HTML5,6
 2,jquery,6
 2,jQuery Mobile,6
@@ -40,7 +40,8 @@ project,tech,duration
 3,css,13
 3,css3,12
 3,less,12
-3,html,13
+3,HTML4,13
+2,HTML5,6
 3,c#,13
 3,MVVM(MVC),13
 3,Spark View Engine,13
