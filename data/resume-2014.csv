@@ -38,11 +38,11 @@ project,tech,duration
 3,js,13
 3,typescript,12
 3,css,13
-3,css3,6
-3,less,6
+3,css3,12
+3,less,12
 3,html,13
 3,c#,13
-3,MVVC(MVC),13
+3,MVVM(MVC),13
 3,Spark View Engine,13
 3,Region,13
 3,Resource Management System,13

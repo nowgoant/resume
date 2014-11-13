@@ -2,8 +2,11 @@
 /// <reference path="../../scripts/typings/d3/d3.d.ts" />
 /// <reference path="../../scripts/typings/crossfilter/crossfilter.d.ts" />
 /// <reference path="../../scripts/typings/iresumedata.d.ts" />
+/// <reference path="../../scripts/typings/jquery/jquery.d.ts" />
 /// <reference path="timer.ts" />
+
 'use strict';
+
 (function () {
     var timeFormat = d3.time.format.iso, projectsHash = {
         "0": { name: '实习', duration: 1 },
@@ -21,6 +24,8 @@
 
         var ndx = crossfilter(resume);
 
+        var experChart;
+
         //项目经验
         (function (_ndx) {
             var projects = _ndx.dimension(function (d) {
@@ -29,40 +34,30 @@
 
             var resumeByProjectGroup = projects.group().reduceSum(filterProjects);
 
-            dc.pieChart("#projectExperiences-area").width(500).height(250).radius(125).innerRadius(50).dimension(projects).group(resumeByProjectGroup);
+            experChart = dc.pieChart("#projectExperiences-area").width($("#projectExperiences-area").parent().width()).height(250).radius(125).innerRadius(50).dimension(projects).group(resumeByProjectGroup).legend(dc.legend().x(10).y(10).itemHeight(20).gap(10));
         })(ndx);
 
         //技能
         (function (_ndx) {
             var techs = _ndx.dimension(function (d) {
-                return d.tech;
+                return d.tech.toLowerCase();
+            });
+            console.log(techs);
+            var resumeByTechGroup = techs.group().reduceSum(function (d) {
+                return +d.duration;
             });
 
-            var resumeByTechGroup = techs.group();
-            dc.pieChart("#tech-area").width(500).height(250).radius(125).innerRadius(50).dimension(techs).group(resumeByTechGroup);
+            var techChart = dc.rowChart("#tech-area").width($("#tech-area").parent().width()).height(800).dimension(techs).group(resumeByTechGroup).elasticX(true);
         })(ndx);
 
-        //var expByCampusChart = dc.barChart("#experiences_bar")
-        //    .width(500)
-        //    .height(250)
-        //    .transitionDuration(750)
-        //    .margins({ top: 20, right: 10, bottom: 80, left: 80 })
-        //    .dimension(projectLong)
-        //    .group(resumeByProjectLong)
-        ////.centerBar(true)
-        //// .brushOn(false)
-        //// .gap(1)
-        ////.elasticY(true)
-        //// .colors(['steelblue'])
-        ////.xUnits(dc.units.ordinal)
-        ////.x(d3.scale.ordinal().domain(projectNames))
-        //    .x(d3.scale.linear().domain([0, d3.max(timelong)]))
-        //    .y(d3.scale.linear().domain([0, d3.max(timelong)]))
-        //    .renderHorizontalGridLines(true);
-        //expByCampusChart.xAxis().ticks(5);
         dc.renderAll();
 
-        d3.selectAll("g.x text").attr("transform", "translate(0,10)");
+        d3.selectAll("#projectExperiences-area .dc-legend text").forEach(function (item, index, array) {
+            item.forEach(function (txt, index) {
+                d3.select(txt).text(projectsHash[index].name);
+            });
+        });
+        //.attr("transform", "translate(0,10)");
     });
 })();
 //# sourceMappingURL=index.js.map

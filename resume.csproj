@@ -36,8 +36,10 @@
     <Content Include="assets\lib\bootstrap\js\bootstrap.min.js" />
     <Content Include="assets\lib\d3\d3.js" />
     <Content Include="assets\lib\d3\d3.min.js" />
+    <Content Include="assets\lib\dc\colorbrewer.js" />
     <Content Include="assets\lib\dc\crossfilter.js" />
     <Content Include="assets\lib\dc\crossfilter.min.js" />
+    <Content Include="assets\lib\dc\dc.css" />
     <Content Include="assets\lib\dc\dc.js" />
     <Content Include="assets\lib\dc\dc.min.js" />
     <Content Include="assets\lib\holderjs\holder.js" />
