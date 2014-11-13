@@ -1,50 +1,44 @@
 project,tech,duration
 0,C#,12
 0,Linq To Sql/Entity,12
-0,asp.net,12
-0,js,12
-0,jquery,6
-0,dojo,6
+0,Asp.net,12
+0,Js(Ajax),12
+0,jQuery,6
+0,Dojo,6
 0,HTML4,12
-0,css,12
-0,Ajax,6
+0,Css,12
 1,C#,18
-1,asp.net,18
+1,Asp.net,18
 1,ADO.NET,18
 1,Web Service,12
 1,WCF,12
 1,MVVM(MVC),18
-1,js,18
-1,css,18
+1,Js(Ajax),18
+1,Css,18
 1,HTML4,18
 1,Open Xml,10
-1,js to Office word,6
-1,jquery,18
+1,Js to Office word,6
+1,jQuery,18
 1,SOA,18
-1,Ajax,18
-2,js,6
-2,css,6
-2,css3,6
+2,Js(Ajax),6
+2,Css,6
+2,Css3,6
 2,HTML4,6
 2,HTML5,6
-2,jquery,6
+2,jQuery,6
 2,jQuery Mobile,6
-2,PhoneGap,6
-2,PhoneGap to Android,6
-2,PhoneGap to ios,6
-2,Ajax,6
+2,PhoneGap Android/IOS,6
 2,FusionCharts,6
 2,iscroll4,6
-3,js,13
-3,typescript,12
-3,css,13
-3,css3,12
-3,less,12
+3,Js(Ajax),13
+3,TypeScript,12
+3,Css,13
+3,Css3,12
+3,Less,12
 3,HTML4,13
 2,HTML5,6
-3,c#,13
+3,C#,13
 3,MVVM(MVC),13
 3,Spark View Engine,13
 3,Region,13
 3,Resource Management System,13
-3,ajax,6
