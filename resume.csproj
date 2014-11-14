@@ -22,6 +22,9 @@
     </Content>
     <Content Include="assets\css\keen-dashboards.css" />
     <Content Include="assets\css\keen-static.css" />
+    <Content Include="assets\css\loading.css">
+      <DependentUpon>loading.less</DependentUpon>
+    </Content>
     <Content Include="assets\img\bg-bars.png" />
     <Content Include="assets\img\github.svg" />
     <Content Include="assets\img\me.jpg" />
@@ -68,6 +71,7 @@
     <Content Include="assets\css\index.less" />
     <Content Include="data\resume.json" />
     <Content Include="data\resume-2014.csv" />
+    <Content Include="assets\css\loading.less" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
