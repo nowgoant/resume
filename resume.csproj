@@ -20,6 +20,9 @@
     <Content Include="assets\css\headroom.css">
       <DependentUpon>headroom.less</DependentUpon>
     </Content>
+    <Content Include="assets\css\icons-base64.css">
+      <DependentUpon>icons-base64.less</DependentUpon>
+    </Content>
     <Content Include="assets\css\index.css">
       <DependentUpon>index.less</DependentUpon>
     </Content>
@@ -80,6 +83,7 @@
     <Content Include="data\resume-2014.csv" />
     <Content Include="assets\css\loading.less" />
     <Content Include="assets\css\headroom.less" />
+    <Content Include="assets\css\icons-base64.less" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
