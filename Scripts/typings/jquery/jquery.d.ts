@@ -729,11 +729,11 @@ interface JQueryStatic {
 
     ajaxSettings: JQueryAjaxSettings;
 
-     /**
-      * Set default values for future Ajax requests. Its use is not recommended.
-      *
-      * @param options A set of key/value pairs that configure the default Ajax request. All options are optional.
-      */
+    /**
+     * Set default values for future Ajax requests. Its use is not recommended.
+     *
+     * @param options A set of key/value pairs that configure the default Ajax request. All options are optional.
+     */
     ajaxSetup(options: JQueryAjaxSettings): void;
 
     /**
@@ -1272,6 +1272,8 @@ interface JQueryStatic {
      * @param keepScripts A Boolean indicating whether to include scripts passed in the HTML string
      */
     parseHTML(data: string, context?: Document, keepScripts?: boolean): any[];
+
+   
 }
 
 /**
@@ -3936,6 +3938,8 @@ interface JQuery {
      * @param callback The new function to add to the queue, with a function to call that will dequeue the next item.
      */
     queue(queueName: string, callback: Function): JQuery;
+
+    headroom(config?: any): JQuery;
 }
 declare module "jquery" {
     export = $;

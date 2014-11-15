@@ -2,10 +2,10 @@
 .loader:before,
 .loader:after {
   background: #50cf77;
-  -webkit-animation: load1 1s infinite ease-in-out;
-  -moz-animation: load1 1s infinite ease-in-out;
-  -o-animation: load1 1s infinite ease-in-out;
-  animation: load1 1s infinite ease-in-out;
+  -webkit-animation: loadDress 1s infinite ease-in-out;
+  -moz-animation: loadDress 1s infinite ease-in-out;
+  -o-animation: loadDress 1s infinite ease-in-out;
+  animation: loadDress 1s infinite ease-in-out;
   width: 1em;
   height: 4em;
 }
@@ -35,7 +35,7 @@
   -o-animation-delay: -0.32s;
   animation-delay: -0.32s;
 }
-@-moz-keyframes load1 {
+@-moz-keyframes loadDress {
   0%,
   80%,
   100% {
@@ -51,7 +51,7 @@
     height: 5em;
   }
 }
-@-ms-keyframes load1 {
+@-ms-keyframes loadDress {
   0%,
   80%,
   100% {
@@ -67,7 +67,7 @@
     height: 5em;
   }
 }
-@-webkit-keyframes load1 {
+@-webkit-keyframes loadDress {
   0%,
   80%,
   100% {
@@ -83,7 +83,7 @@
     height: 5em;
   }
 }
-@keyframes load1 {
+@keyframes loadDress {
   0%,
   80%,
   100% {
@@ -98,6 +98,52 @@
     box-shadow: 0 -2em #50cf77;
     height: 5em;
   }
+}
+.slide {
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+.slide--up {
+  -webkit-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+.header--fixed {
+  position: fixed;
+  z-index: 10;
+  right: 0;
+  left: 0;
+  top: 0;
+}
+.headroom--pinned {
+  display: block;
+}
+.headroom--unpinned {
+  display: none;
+}
+.headroom {
+  -moz-transition: transform 200ms linear;
+  -o-transition: transform 200ms linear;
+  -webkit-transition: transform 200ms linear;
+  transition: transform 200ms linear;
+}
+.headroom--pinned {
+  -moz-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  -o-transform: translateY(0%);
+  -webkit-transform: translateY(0%);
+  transform: translateY(0%);
+}
+.headroom--unpinned {
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
 }
 .masthead {
   background-color: #00afd7;
@@ -144,14 +190,14 @@
 .mei {
   margin: 0 10px 0 0;
 }
-.something {
-  margin: 24px 0 0 0;
-}
-body.pad128 {
-  padding-top: 98px;
+.plr20 {
+  padding: 0 20px;
 }
 .pr {
   position: relative;
+}
+body.pad128 {
+  padding: 102px 0 0 0;
 }
 .gh-btn,
 .gh-count,

@@ -17,6 +17,9 @@
     <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="assets\css\headroom.css">
+      <DependentUpon>headroom.less</DependentUpon>
+    </Content>
     <Content Include="assets\css\index.css">
       <DependentUpon>index.less</DependentUpon>
     </Content>
@@ -46,6 +49,10 @@
     <Content Include="assets\lib\dc\dc.css" />
     <Content Include="assets\lib\dc\dc.js" />
     <Content Include="assets\lib\dc\dc.min.js" />
+    <Content Include="assets\lib\headroom\headroom.js" />
+    <Content Include="assets\lib\headroom\headroom.min.js" />
+    <Content Include="assets\lib\headroom\jQuery.headroom.js" />
+    <Content Include="assets\lib\headroom\jQuery.headroom.min.js" />
     <Content Include="assets\lib\holderjs\holder.js" />
     <Content Include="assets\lib\jquery-knob\jquery.knob.min.js" />
     <Content Include="assets\lib\jquery-knob\excanvas.js" />
@@ -72,6 +79,7 @@
     <Content Include="data\resume.json" />
     <Content Include="data\resume-2014.csv" />
     <Content Include="assets\css\loading.less" />
+    <Content Include="assets\css\headroom.less" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

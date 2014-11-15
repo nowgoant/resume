@@ -88,4 +88,21 @@
         });
     });
 })();
+
+(function () {
+    $(document).ready(function () {
+        $("#navbar").addClass("slide--up").headroom({
+            tolerance: {
+                down: 10,
+                up: 150
+            },
+            offset: 10,
+            classes: {
+                initial: "slide",
+                pinned: "slide--reset",
+                unpinned: "slide--up"
+            }
+        });
+    });
+})();
 //# sourceMappingURL=index.js.map

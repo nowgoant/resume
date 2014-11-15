@@ -14,7 +14,7 @@
     <link href="assets/css/index.css" rel="stylesheet" />
 </head>
 <body class="application pad128">
-    <div class="navbar navbar-fixed-top masthead" role="navigation">
+    <div id="navbar" class="masthead header header--fixed slide slide--reset headroom--top" role="navigation">
         <div class="pr container">
             <img src="assets/img/me.jpg" class="fl radius50 mei" width="75" height="75" />
             <h4 class="something">每一天，努力让梦想更近一些</h4>
@@ -24,7 +24,7 @@
             </a>
         </div>
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid plr20">
         <div class="row">
             <div class="col-sm-7">
                 <div class="chart-wrapper">
@@ -82,10 +82,9 @@
         Holder.add_theme("white", { background: "#fff", foreground: "#a7a7a7", size: 10 });
     </script>
     <script src="assets/js/timer.js"></script>
-    <script src="assets/lib/dc/colorbrewer.js"></script>
+    <script src="assets/lib/dc/colorbrewer.js"></script>   
+    <script src="assets/lib/headroom/headroom.min.js"></script>
+    <script src="assets/lib/headroom/jQuery.headroom.js"></script>
     <script src="assets/js/index.js"></script>
-    <script type="text/javascript">
-
-    </script>
 </body>
 </html>
