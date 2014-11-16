@@ -84,6 +84,7 @@
     <Content Include="assets\css\loading.less" />
     <Content Include="assets\css\headroom.less" />
     <Content Include="assets\css\icons-base64.less" />
+    <Content Include="data\interest-2014.csv" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

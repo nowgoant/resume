@@ -16,7 +16,7 @@
 <body class="application pad128">
     <div id="navbar" class="masthead header header--fixed slide slide--reset headroom--top" role="navigation">
         <div class="pr container">
-            <span class="fl radius50 mei logo"></span>
+            <a href="https://github.com/nowgoant" target="_blank" class="fl radius50 mei logo"></a>
             <h4 class="something">每一天，努力让梦想更近一些</h4>
             <a class="gh-btn github" id="gh-btn" href="https://github.com/nowgoant/resume" target="_blank">
                 <span class="gh-ico"></span>
@@ -25,7 +25,7 @@
         </div>
     </div>
     <div class="container-fluid plr20">
-        <div class="row">
+        <div id="work-area" class="row">
             <div class="col-sm-7">
                 <div class="chart-wrapper">
                     <div class="chart-title">
@@ -82,6 +82,53 @@
                     </div>
                     <div class="chart-notes">
                         参加工作的时间
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="interest-area" class="row">
+            <div class="col-sm-5 ">
+                <div class="chart-wrapper">
+                    <div class="chart-title">
+                        技术类型<span class="hot">**可点击噢，亲 {例：JsClient}**</span>
+                    </div>
+                    <div class="chart-stage">
+                        <div id="inter-type-area"></div>
+                        <div class="loader">Loading...</div>
+                    </div>
+                    <div class="chart-notes">
+                        参加过的项目组
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-7 fr">
+                <div class="chart-wrapper">
+                    <div class="chart-title">
+                        兴趣技能<span class="hot">**可点击噢，亲 {例：D3}**</span>
+                    </div>
+                    <div class="chart-stage inter-tech-area">
+                        <div id="grid-1-1">
+                            <div id="inter-tech-area"></div>
+                            <div class="loader">Loading...</div>
+                            <div class="text-center">使用时间(月)</div>
+                        </div>
+                    </div>
+                    <div class="chart-notes">
+                        业余时间“bao”的技能
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5 ">
+                <div class="chart-wrapper">
+                    <div class="chart-title">
+                        书<span class="hot">**可点击噢，亲 {例：JsClient}**</span>
+                    </div>
+                    <div class="chart-stage">
+                        <div id="inter-book-area"></div>
+                        <div class="loader">Loading...</div>
+                    </div>
+                    <div class="chart-notes">
+                        购买的书
                     </div>
                 </div>
             </div>

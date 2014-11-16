@@ -107,7 +107,7 @@
         })(ndx);
 
         dc.renderAll();
-        $('.loader').remove();
+        $('.loader', $("#work-area")).remove();
 
         //debugger
         $(window).resize(function () {
@@ -130,6 +130,64 @@
                 unpinned: "slide--up"
             }
         });
+    });
+})();
+
+(function () {
+    var timeFormat = d3.time.format.iso;
+
+    d3.csv('data/interest-2014.csv', function (resume) {
+        var ndx = crossfilter(resume);
+
+        //兴趣技能类型
+        (function (_ndx) {
+            var types = _ndx.dimension(function (d) {
+                return d.type;
+            });
+
+            var resumeByTypesGroup = types.group();
+
+            var typsChart = dc.pieChart("#inter-type-area").width($("#inter-type-area").parent().width()).height(250).radius(125).innerRadius(50).dimension(types).group(resumeByTypesGroup).legend(dc.legend().x(10).y(10).itemHeight(20).gap(10)).title(function (d) {
+                var key = d.key || (d.data && d.data.key), value = d.value || (d.data && d.data.value);
+                return "类型名称:" + key + "\n";
+            });
+        })(ndx);
+
+        //兴趣技能
+        (function (_ndx) {
+            var techs = _ndx.dimension(function (d) {
+                return d.tech;
+            });
+
+            //console.log(techs);
+            var resumeByTechGroup = techs.group().reduceSum(function (d) {
+                return +d.duration;
+            });
+
+            var techChart = dc.rowChart("#inter-tech-area").width($("#inter-tech-area").parent().width()).height(600).dimension(techs).group(resumeByTechGroup).elasticX(true).title(function (d) {
+                var key = d.key, value = d.value;
+                return "技术名称:" + key.toUpperCase() + "\n" + "使用时间:" + value / 12 + "(年)\n";
+            });
+        })(ndx);
+
+        //书
+        (function (_ndx) {
+            var books = _ndx.dimension(function (d) {
+                return d.books;
+            });
+
+            var resumeByBooksGroup = books.group().reduceSum(function (d) {
+                return +d.bookCount;
+            });
+
+            var techChart = dc.rowChart("#inter-book-area").width($("#inter-book-area").parent().width()).height(300).dimension(books).group(resumeByBooksGroup).elasticX(true).title(function (d) {
+                var key = d.key, value = d.value;
+                return "书名:" + key.toUpperCase() + "\n";
+            });
+        })(ndx);
+
+        dc.renderAll();
+        $('.loader', $("#interest-area")).remove();
     });
 })();
 //# sourceMappingURL=index.js.map
