@@ -15,7 +15,7 @@
 </head>
 <body class="application pad128">
     <div id="navbar" class="masthead header header--fixed slide slide--reset headroom--top" role="navigation">
-        <div class="pr container">           
+        <div class="pr container">
             <span class="fl radius50 mei logo"></span>
             <h4 class="something">每一天，努力让梦想更近一些</h4>
             <a class="gh-btn github" id="gh-btn" href="https://github.com/nowgoant/resume" target="_blank">
@@ -31,10 +31,11 @@
                     <div class="chart-title">
                         技能<span class="hot">**可点击噢，亲 {例：ADO.NET}**</span>
                     </div>
-                    <div class="chart-stage">
+                    <div class="chart-stage tech-area">
                         <div id="grid-1-1">
                             <div id="tech-area"></div>
                             <div class="loader">Loading...</div>
+                            <div class="text-center">使用时间(月)</div>
                         </div>
                     </div>
                     <div class="chart-notes">
@@ -42,7 +43,21 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-5">
+            <div class="col-sm-5 fr">
+                <div class="chart-wrapper">
+                    <div class="chart-title">
+                        公司组<span class="hot">**可点击噢，亲 {例：软通}**</span>
+                    </div>
+                    <div class="chart-stage">
+                        <div id="company-area"></div>
+                        <div class="loader">Loading...</div>
+                    </div>
+                    <div class="chart-notes">
+                        参加过的项目组
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5 fr">
                 <div class="chart-wrapper">
                     <div class="chart-title">
                         项目组<span class="hot">**可点击噢，亲 {例：实习}**</span>
@@ -82,7 +97,7 @@
         Holder.add_theme("white", { background: "#fff", foreground: "#a7a7a7", size: 10 });
     </script>
     <script src="assets/js/timer.js"></script>
-    <script src="assets/lib/dc/colorbrewer.js"></script>   
+    <script src="assets/lib/dc/colorbrewer.js"></script>
     <script src="assets/lib/headroom/headroom.min.js"></script>
     <script src="assets/lib/headroom/jQuery.headroom.js"></script>
     <script src="assets/js/index.js"></script>

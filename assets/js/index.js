@@ -10,9 +10,9 @@
 (function () {
     var timeFormat = d3.time.format.iso, projectsHash = {
         "0": { name: '实习', duration: 1 },
-        "1": { name: '远洋地产SOA', duration: 1.5, year: '201108-201302', company: '软通动力' },
+        "1": { name: '远洋地产SOA', duration: 1.5, year: '201108-201302', company: '明河伟业科技有限公司' },
         "2": { name: '中石油管道移动平台', duration: 0.5, year: '201304-201310', company: '长城软件' },
-        "3": { name: '微软123导航', duration: 1.1, year: '201310-至今', company: '明河伟业科技有限公司' }
+        "3": { name: '微软123导航', duration: 1.1, year: '201310-至今', company: '软通动力' }
     };
 
     function filterProjects(d) {
@@ -23,7 +23,7 @@
         var projectNames = [], timelong = [];
 
         var ndx = crossfilter(resume);
-
+        var all = ndx.groupAll();
         var experChart;
 
         //项目经验
@@ -53,7 +53,7 @@
                 return +d.duration;
             });
 
-            var techChart = dc.rowChart("#tech-area").width($("#tech-area").parent().width()).height(800).dimension(techs).group(resumeByTechGroup).elasticX(true).title(function (d) {
+            var techChart = dc.rowChart("#tech-area").width($("#tech-area").parent().width()).height(810).dimension(techs).group(resumeByTechGroup).elasticX(true).title(function (d) {
                 var key = d.key, value = d.value;
                 return "技术名称:" + key.toUpperCase() + "\n" + "使用时间:" + value / 12 + "(年)\n";
             });
@@ -73,9 +73,36 @@
             });
 
             experChart = dc.pieChart("#year-area").width($("#year-area").parent().width()).height(250).radius(125).innerRadius(50).dimension(projects).group(resumeByProjectGroup).legend(dc.legend().x(10).y(10).itemHeight(20).gap(10)).title(function (d) {
-                console.log(d);
                 var key = d.key || (d.data && d.data.key), value = d.value || (d.data && d.data.value);
                 return "时长:" + key + "\n" + "公司名称:  " + projectsHash[tempData[key]]['company'] + "\n";
+            });
+        })(ndx);
+
+        //公司
+        (function (_ndx) {
+            var tempData = {};
+            var companys = _ndx.dimension(function (d) {
+                var temp = projectsHash[d.project].company && projectsHash[d.project].company.substring(0, 2);
+                tempData[temp] = d.project;
+                return temp;
+            });
+
+            var resumeByCompanyGroup = companys.group().reduceSum(function (d) {
+                return +d.duration;
+            });
+
+            var companysChart = dc.pieChart("#company-area").width($("#company-area").parent().width()).height(180).radius(80).dimension(companys).group(resumeByCompanyGroup).legend(dc.legend().x(10).y(10).itemHeight(20).gap(10)).title(function (d) {
+                var key = d.key || (d.data && d.data.key), value = d.value || (d.data && d.data.value);
+                return "时长:" + key + "\n" + "公司名称:  " + projectsHash[tempData[key]]['company'] + "\n";
+            }).label(function (d) {
+                //if (companysChart.hasFilter() && !companysChart.hasFilter(d.key))
+                //    return d.key + "(0%)";
+                var label = d.key;
+
+                //if (all.value())
+                //    label += "(" + Math.floor(d.value / all.value() * 100) + "%)";
+                //console.log(d.value + ' ' + all.value());
+                return label;
             });
         })(ndx);
 

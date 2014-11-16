@@ -20,7 +20,7 @@
 }
 .loader {
   text-indent: -9999em;
-  margin: 8em auto;
+  margin: 4em auto;
   position: relative;
   font-size: 11px;
   -webkit-animation-delay: -0.16s;
@@ -263,7 +263,10 @@ body.pad128 {
   font-style: italic;
 }
 .chart-wrapper .chart-stage {
-  min-height: 265px;
+  min-height: 180px;
+}
+.chart-wrapper .tech-area {
+  min-height: 875px;
 }
 .something {
   padding: 20px 0;
