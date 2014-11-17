@@ -58,6 +58,7 @@ declare module D3 {
     }
 
     export interface Base extends Selectors {
+        tip(): any;
         /**
         * Create a behavior
         */

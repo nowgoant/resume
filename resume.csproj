@@ -31,6 +31,9 @@
     <Content Include="assets\css\loading.css">
       <DependentUpon>loading.less</DependentUpon>
     </Content>
+    <Content Include="assets\css\tip.css">
+      <DependentUpon>tip.less</DependentUpon>
+    </Content>
     <Content Include="assets\img\bg-bars.png" />
     <Content Include="assets\img\github.svg" />
     <Content Include="assets\img\me.jpg" />
@@ -44,6 +47,7 @@
     <Content Include="assets\lib\bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="assets\lib\bootstrap\js\bootstrap.js" />
     <Content Include="assets\lib\bootstrap\js\bootstrap.min.js" />
+    <Content Include="assets\lib\d3-tip\d3-tip.js" />
     <Content Include="assets\lib\d3\d3.js" />
     <Content Include="assets\lib\d3\d3.min.js" />
     <Content Include="assets\lib\dc\colorbrewer.js" />
@@ -85,6 +89,7 @@
     <Content Include="assets\css\headroom.less" />
     <Content Include="assets\css\icons-base64.less" />
     <Content Include="data\interest-2014.csv" />
+    <Content Include="assets\css\tip.less" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
