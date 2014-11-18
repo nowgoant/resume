@@ -6,6 +6,7 @@ my resume
 other
 =====
 resume.github.io生成[简历][1]
+
 竞鹿-[简历][2]
 
 
