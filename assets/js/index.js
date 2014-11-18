@@ -7,6 +7,25 @@
 
 'use strict';
 
+function percentage(group, per) {
+    var total = 0;
+
+    group.forEach(function (data, index) {
+        total += data.value;
+    });
+
+    return Math.floor(per / total * 100);
+}
+
+function createPercentage(chart, group, d) {
+    if (chart.hasFilter() && !chart.hasFilter(d.key))
+        return "0%";
+    var label = "";
+    if (group.all())
+        label += percentage(group.all(), d.value) + "%";
+    return label;
+}
+
 var Tips;
 (function (Tips) {
     function bindEventHanlder(groupName, seletor, techTip) {
@@ -17,7 +36,6 @@ var Tips;
 
     function Tip1(title) {
         return d3.tip().attr('class', 'd3-tip').offset([-10, 0]).html(function (d) {
-            //console.log(d);
             return "<strong style='color: #f0027f'>" + title + ":</strong> <span>" + d.key + "</span>";
         });
     }
@@ -67,22 +85,6 @@ var Tips;
         var projectNames = [], timelong = [];
         var GROUPNAME = 'work-area', ndx = crossfilter(resume), all = ndx.groupAll(), experChart;
 
-        //项目经验
-        (function (_ndx) {
-            var projects = _ndx.dimension(function (d) {
-                return projectsHash[d.project].name;
-            });
-
-            var resumeByProjectGroup = projects.group().reduceSum(function (d) {
-                return +d.duration;
-            });
-
-            experChart = dc.pieChart("#projectExperiences-area", GROUPNAME).width($("#projectExperiences-area").parent().width()).height(250).radius(125).innerRadius(50).dimension(projects).group(resumeByProjectGroup).legend(dc.legend().x(10).y(10).itemHeight(20).gap(10)).title(function (d) {
-                var key = d.key || (d.data && d.data.key), value = d.value || (d.data && d.data.value);
-                return "大小:   " + value + "\n" + "项目名称:  " + key + "\n";
-            });
-        })(ndx);
-
         //技能
         (function (_ndx) {
             var techs = _ndx.dimension(function (d) {
@@ -102,6 +104,45 @@ var Tips;
             ;
         })(ndx);
 
+        //公司
+        (function (_ndx) {
+            var tempData = {};
+            var companys = _ndx.dimension(function (d) {
+                var temp = projectsHash[d.project].company;
+                tempData[temp] = d.project;
+                return temp;
+            });
+
+            var resumeByCompanyGroup = companys.group().reduceSum(function (d) {
+                return +d.duration;
+            });
+
+            var companysChart = dc.pieChart("#company-area", GROUPNAME).width($("#company-area").parent().width()).height(180).radius(80).dimension(companys).group(resumeByCompanyGroup).legend(dc.legend().x(10).y(10).itemHeight(20).gap(10)).title(function (d) {
+                var key = d.key || (d.data && d.data.key), value = d.value || (d.data && d.data.value);
+                return "时长:" + projectsHash[tempData[key]]['duration'] + "(年)\n" + "公司名称:  " + key + "\n";
+            }).label(function (d) {
+                return createPercentage(companysChart, resumeByCompanyGroup, d);
+            });
+        })(ndx);
+
+        //项目经验
+        (function (_ndx) {
+            var projects = _ndx.dimension(function (d) {
+                return projectsHash[d.project].name;
+            });
+
+            var resumeByProjectGroup = projects.group().reduceSum(function (d) {
+                return +d.duration;
+            });
+
+            experChart = dc.pieChart("#projectExperiences-area", GROUPNAME).width($("#projectExperiences-area").parent().width()).height(250).radius(125).innerRadius(50).dimension(projects).group(resumeByProjectGroup).legend(dc.legend().x(10).y(10).itemHeight(20).gap(10)).label(function (d) {
+                return createPercentage(experChart, resumeByProjectGroup, d);
+            }).title(function (d) {
+                var key = d.key || (d.data && d.data.key), value = d.value || (d.data && d.data.value);
+                return "大小:   " + value + "\n" + "项目名称:  " + key + "\n";
+            });
+        })(ndx);
+
         //工作时间
         (function (_ndx) {
             var tempData = {};
@@ -114,37 +155,11 @@ var Tips;
                 return +d.duration;
             });
 
-            experChart = dc.pieChart("#year-area", GROUPNAME).width($("#year-area").parent().width()).height(250).radius(125).innerRadius(50).dimension(projects).group(resumeByProjectGroup).legend(dc.legend().x(10).y(10).itemHeight(20).gap(10)).title(function (d) {
+            var timeChart = dc.pieChart("#year-area", GROUPNAME).width($("#year-area").parent().width()).height(250).radius(125).innerRadius(50).dimension(projects).group(resumeByProjectGroup).legend(dc.legend().x(10).y(10).itemHeight(20).gap(10)).label(function (d) {
+                return createPercentage(timeChart, resumeByProjectGroup, d);
+            }).title(function (d) {
                 var key = d.key || (d.data && d.data.key), value = d.value || (d.data && d.data.value);
                 return "时长:" + key + "\n" + "公司名称:  " + projectsHash[tempData[key]]['company'] + "\n";
-            });
-        })(ndx);
-
-        //公司
-        (function (_ndx) {
-            var tempData = {};
-            var companys = _ndx.dimension(function (d) {
-                var temp = projectsHash[d.project].company && projectsHash[d.project].company.substring(0, 2);
-                tempData[temp] = d.project;
-                return temp;
-            });
-
-            var resumeByCompanyGroup = companys.group().reduceSum(function (d) {
-                return +d.duration;
-            });
-
-            var companysChart = dc.pieChart("#company-area", GROUPNAME).width($("#company-area").parent().width()).height(180).radius(80).dimension(companys).group(resumeByCompanyGroup).legend(dc.legend().x(10).y(10).itemHeight(20).gap(10)).title(function (d) {
-                var key = d.key || (d.data && d.data.key), value = d.value || (d.data && d.data.value);
-                return "时长:" + key + "\n" + "公司名称:  " + projectsHash[tempData[key]]['company'] + "\n";
-            }).label(function (d) {
-                //if (companysChart.hasFilter() && !companysChart.hasFilter(d.key))
-                //    return d.key + "(0%)";
-                var label = d.key;
-
-                //if (all.value())
-                //    label += "(" + Math.floor(d.value / all.value() * 100) + "%)";
-                //console.log(d.value + ' ' + all.value());
-                return label;
             });
         })(ndx);
 
@@ -189,6 +204,8 @@ var Tips;
             var typsChart = dc.pieChart("#inter-type-area", GROUPNAME).width($("#inter-type-area").parent().width()).height(250).radius(125).innerRadius(50).dimension(types).group(resumeByTypesGroup).legend(dc.legend().x(10).y(10).itemHeight(20).gap(10)).title(function (d) {
                 var key = d.key || (d.data && d.data.key), value = d.value || (d.data && d.data.value);
                 return "类型名称:" + key + "\n";
+            }).label(function (d) {
+                return createPercentage(typsChart, resumeByTypesGroup, d);
             });
         })(ndx);
 
