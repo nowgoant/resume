@@ -37,6 +37,7 @@
     <Content Include="assets\img\bg-bars.png" />
     <Content Include="assets\img\github.svg" />
     <Content Include="assets\img\me.jpg" />
+    <Content Include="assets\img\upload.jpg" />
     <Content Include="assets\js\index.js" />
     <Content Include="assets\js\meta.js" />
     <Content Include="assets\js\timer.js" />
