@@ -96,6 +96,7 @@
     <None Include="web.Release.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
+    <Content Include="resume.appcache" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="layouts\" />

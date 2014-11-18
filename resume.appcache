@@ -1,0 +1,33 @@
+﻿CACHE MANIFEST
+
+# version 2014-11-10 16:15 v1.0.3
+CACHE:
+#font
+
+#img
+
+#css
+assets/lib/bootstrap/css/bootstrap.min.css
+assets/css/keen-dashboards.css
+assets/lib/dc/dc.css
+assets/css/index.css
+
+#javascript
+assets/lib/jquery/jquery.min.js
+assets/lib/bootstrap/js/bootstrap.min.js
+assets/lib/holderjs/holder.js
+assets/lib/d3/d3.js
+assets/lib/d3-tip/d3-tip.js
+assets/lib/dc/crossfilter.js
+assets/lib/dc/dc.js
+assets/js/timer.js
+assets/lib/dc/colorbrewer.js
+assets/lib/headroom/headroom.min.js
+assets/lib/headroom/jQuery.headroom.js
+assets/js/index.js
+
+#data
+data/interest-2014.csv
+data/resume-2014.csv
+NETWORK:
+*
