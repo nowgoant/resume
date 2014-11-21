@@ -185,6 +185,11 @@
   top: 100%;
   left: 0;
 }
+a,
+a:hover,
+a:focus {
+  text-decoration: none;
+}
 .masthead {
   background-color: #00afd7;
   background-image: url("../img/bg-bars.png");
@@ -285,11 +290,17 @@ body.pad128 {
   height: 70px;
   background-size: cover;
 }
+.doc,
 .github {
   position: absolute;
   top: 50%;
   margin-top: -13px;
+}
+.github {
   right: 10px;
+}
+.doc {
+  right: 70px;
 }
 .hot {
   color: red;

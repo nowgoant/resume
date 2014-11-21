@@ -3,6 +3,10 @@
 @import 'icons-base64.less';
 @import 'tip.less';
 
+a, a:hover, a:focus {
+    text-decoration: none;
+}
+
 .masthead {
     background-color: #00afd7;
     background-image: url("../img/bg-bars.png");
@@ -121,13 +125,19 @@ body.pad128 {
 }
 
 
-.github {
+.doc, .github {
     position: absolute;
     top: 50%;
     margin-top: -13px;
+}
+
+.github {
     right: 10px;
 }
 
+.doc {
+    right: 70px;
+}
 
 
 .hot {
@@ -157,5 +167,4 @@ body.pad128 {
 
 
 .subject {
-    
 }
